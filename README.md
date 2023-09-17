@@ -6,7 +6,25 @@
 Yoshinon ~~(よしのん)~~ is a whiptail-like dialog box written with Bubble Tea (Go).          
 The command-line usage is very similar to dialog/whiptail.      
 ## Usage:
-As we all know, premature optimization is the root of all evil, so this will be done after I get all the modules working.      
+```
+Box options:
+
+  --msgbox      [options] <text> <height> <width>
+  --yesno       [options] <text> <height> <width>
+  --infobox     [options] <text> <height> <width>
+  --inputbox    [options] <text> <height> <width> [init]
+  --passwordbox [options] <text> <height> <width>
+  --menu        [options] <text> <height> <width> <listheight> [tag item] ...
+  --checklist   [options] <text> <height> <width> <listheight> [tag item status]...
+  --radiolist   [options] <text> <height> <width> <listheight> [tag item status]...
+  --gauge       [options] <text> <height> <width>
+
+Options:
+
+  --border  [rounded/normal/thick/double/hidden]
+  --help    print this message
+  --version print version information
+```     
 ## TODO:
 - [X] msgbox       
 - [X] yesno  
@@ -16,7 +34,7 @@ As we all know, premature optimization is the root of all evil, so this will be 
 - [X] checklist
 - [X] radiolist
 - [X] gauge
-- [ ] help page
+- [X] help
 - [ ] man page
 
 ## Thanks:
