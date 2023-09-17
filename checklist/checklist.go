@@ -37,8 +37,8 @@ import (
 	"golang.org/x/sys/unix"
 	"os"
 	"syscall"
-	. "yoshinon/ui"
 	. "yoshinon/help"
+	. "yoshinon/ui"
 )
 
 var (
@@ -50,6 +50,7 @@ var (
 	listheight  int
 	listwidth   int
 	message     string
+	title       string
 	border      string
 	bgcolor     = "\033[1;48;2;100;149;237m"
 	cursorcolor = "\033[1;48;2;152;245;225m"
@@ -64,6 +65,7 @@ type Checklist_config struct {
 	Height      int
 	Listheight  int
 	Message     string
+	Title       string
 	Bgcolor     string
 	Cursorcolor string
 	Boxcolor    string
@@ -160,7 +162,7 @@ func (m model) View() string {
 	col := ((wscol / 2) - len(message)/2) + 2
 	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
 	// See ui.go
-	Show_message(message, boxcolor, width, height)
+	Show_message(message, title, boxcolor, width, height)
 	row = ((wsrow / 2) - (listheight / 2)) + 2
 	col = ((wscol / 2) - (listwidth / 2)) + 2
 	for i := m.cursor - m.position; i < m.cursor+(listheight-m.position); i++ {
@@ -219,6 +221,7 @@ func Checklist(m Checklist_config) string {
 		status[i] = m.Status[i]
 	}
 	message = m.Message
+	title = m.Title
 	if m.Bgcolor != "" {
 		bgcolor = m.Bgcolor
 	}

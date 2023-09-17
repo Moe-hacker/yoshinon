@@ -66,6 +66,9 @@ func run_gauge(args []string) {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -92,6 +95,9 @@ func run_passwordbox(args []string) string {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -118,6 +124,9 @@ func run_inputbox(args []string) string {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -148,6 +157,9 @@ func run_menu(args []string) string {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -186,6 +198,9 @@ func run_radiolist(args []string) string {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -230,6 +245,9 @@ func run_checklist(args []string) string {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -274,6 +292,9 @@ func run_msgbox(args []string) {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++
@@ -301,6 +322,9 @@ func run_yesno(args []string) int {
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
+		} else if args[i] == "--title" {
+			i++
+			m.Title = args[i]
 		} else {
 			m.Message = args[i]
 			i++

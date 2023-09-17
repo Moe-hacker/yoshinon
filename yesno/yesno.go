@@ -44,6 +44,7 @@ var (
 	width       int
 	height      int
 	message     string
+	title       string
 	border      string
 	bgcolor     = "\033[1;48;2;100;149;237m"
 	cursorcolor = "\033[1;48;2;152;245;225m"
@@ -54,6 +55,7 @@ type Yesno_config struct {
 	Width       int
 	Height      int
 	Message     string
+	Title       string
 	Bgcolor     string
 	Cursorcolor string
 	Boxcolor    string
@@ -108,7 +110,7 @@ func (m model) View() string {
 	col := ((wscol / 2) - len(message)/2) + 2
 	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
 	// See ui.go
-	Show_message(message, boxcolor, width, height)
+	Show_message(message, title, boxcolor, width, height)
 	row = (wsrow-height)/2 + height
 	col = (wscol-width)/2 + 3
 	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
@@ -141,6 +143,7 @@ func Yesno(m Yesno_config) int {
 		m.Border = "rounded"
 	}
 	border = m.Border
+	title = m.Title
 	// Check window size.
 	ws, err := unix.IoctlGetWinsize(syscall.Stderr, unix.TIOCGWINSZ)
 	if err != nil {

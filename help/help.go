@@ -69,8 +69,9 @@ func Help() {
 	//fmt.Print("	--bgcolor\n")
 	//fmt.Print("	--boxcolor\n")
 	//fmt.Print("	--cursorcolor\n")
-	fmt.Print("  --border  [rounded/normal/thick/double/hidden]\n")
+	fmt.Print("  --border  <rounded/normal/thick/double/hidden>\n")
+	fmt.Print("  --title   <title>\n")
 	fmt.Print("  --help    print this message\n")
-    fmt.Print("  --version print version information\033[0m\n")
+	fmt.Print("  --version print version information\033[0m\n")
 
 }

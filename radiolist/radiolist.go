@@ -36,9 +36,9 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"golang.org/x/sys/unix"
 	"os"
-	. "yoshinon/ui"
 	"syscall"
 	. "yoshinon/help"
+	. "yoshinon/ui"
 )
 
 var (
@@ -50,7 +50,8 @@ var (
 	listheight  int
 	listwidth   int
 	message     string
-	border string
+	title       string
+	border      string
 	bgcolor     = "\033[1;48;2;100;149;237m"
 	cursorcolor = "\033[1;48;2;152;245;225m"
 	boxcolor    = "\033[1;48;2;254;228;208m\033[1;38;2;0;0;0m"
@@ -64,6 +65,7 @@ type Radiolist_config struct {
 	Height      int
 	Listheight  int
 	Message     string
+	Title       string
 	Bgcolor     string
 	Cursorcolor string
 	Boxcolor    string
@@ -77,7 +79,6 @@ type model struct {
 	// For yesno buttons.
 	yesno int
 }
-
 
 func (m model) Init() tea.Cmd {
 	// See ui.go
@@ -160,7 +161,7 @@ func (m model) View() string {
 	col := ((wscol / 2) - len(message)/2) + 2
 	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
 	// See ui.go
-	Show_message(message, boxcolor, width, height)
+	Show_message(message, title, boxcolor, width, height)
 	row = ((wsrow / 2) - (listheight / 2)) + 2
 	col = ((wscol / 2) - (listwidth / 2)) + 2
 	for i := m.cursor - m.position; i < m.cursor+(listheight-m.position); i++ {
@@ -232,6 +233,7 @@ func Radiolist(m Radiolist_config) string {
 		m.Border = "rounded"
 	}
 	border = m.Border
+	title = m.Title
 	// Check window size.
 	ws, err := unix.IoctlGetWinsize(syscall.Stderr, unix.TIOCGWINSZ)
 	if err != nil {

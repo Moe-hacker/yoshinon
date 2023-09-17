@@ -169,7 +169,7 @@ func Draw_borders(bgcolor string, boxcolor string, bordertype string, height int
 	}
 	fmt.Fprint(os.Stderr, border.BottomRight+bgcolor+"\n")
 }
-func Show_message(message string, boxcolor string, width int, height int) {
+func Show_message(message string, title string, boxcolor string, width int, height int) {
 	ws, err := unix.IoctlGetWinsize(syscall.Stderr, unix.TIOCGWINSZ)
 	if err != nil {
 		panic(err)
@@ -177,8 +177,15 @@ func Show_message(message string, boxcolor string, width int, height int) {
 	wsrow := int(ws.Row)
 	wscol := int(ws.Col)
 	control := ""
-	row := (wsrow-height)/2 + 3
-	col := ((wscol / 2) - len(message)/2) + 2
+	row := (wsrow-height)/2 + 1
+	col := (wscol-len(title))/2 + 1
+	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
+	if title != "" {
+		fmt.Fprintf(os.Stderr, boxcolor+control)
+		fmt.Fprintf(os.Stderr, " "+title+" ")
+	}
+	row = (wsrow-height)/2 + 3
+	col = ((wscol / 2) - len(message)/2) + 2
 	control = "\033[" + fmt.Sprint(row) + "H" + "\033[" + fmt.Sprint(col) + "G"
 	if len(message) > width-1 {
 		// The message is larger than width.

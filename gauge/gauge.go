@@ -40,14 +40,15 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
-	. "yoshinon/ui"
 	. "yoshinon/help"
+	. "yoshinon/ui"
 )
 
 type Gauge_config struct {
 	Width       int
 	Height      int
 	Message     string
+	Title       string
 	Bgcolor     string
 	Cursorcolor string
 	Boxcolor    string
@@ -58,6 +59,7 @@ var (
 	width       int
 	height      int
 	message     string
+	title       string
 	border      string
 	bgcolor     = "\033[1;48;2;100;149;237m"
 	cursorcolor = "\033[1;38;2;152;245;225m"
@@ -87,7 +89,7 @@ func draw_gauge(per int) {
 func show_gauge() {
 	// See ui.go
 	Draw_borders(bgcolor, boxcolor, border, height, width)
-	Show_message(message, boxcolor, width, height)
+	Show_message(message, title, boxcolor, width, height)
 	bkstring := ""
 	for {
 		stat, err := os.Stdin.Stat()
@@ -147,6 +149,7 @@ func Gauge(m Gauge_config) {
 		m.Border = "rounded"
 	}
 	border = m.Border
+	title = m.Title
 	// Check window size.
 	ws, err := unix.IoctlGetWinsize(syscall.Stderr, unix.TIOCGWINSZ)
 	if err != nil {
