@@ -46,7 +46,7 @@ import (
 	. "yoshinon/yesno"
 )
 
-var Version_code = "1.0"
+var Version_code = "1.1"
 
 // It will be set in Makefile, seems that go do not support #define, so I use `sed` command instead.
 var Commit_id = ""
@@ -56,13 +56,13 @@ func run_gauge(args []string) {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -85,13 +85,13 @@ func run_passwordbox(args []string) string {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -114,13 +114,13 @@ func run_inputbox(args []string) string {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -147,13 +147,13 @@ func run_menu(args []string) string {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -188,13 +188,13 @@ func run_radiolist(args []string) string {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -235,13 +235,13 @@ func run_checklist(args []string) string {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -282,13 +282,13 @@ func run_msgbox(args []string) {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]
@@ -312,13 +312,13 @@ func run_yesno(args []string) int {
 	for i := 1; i < len(args); i++ {
 		if args[i] == "--bgcolor" {
 			i++
-			m.Bgcolor = args[i]
+			m.Bgcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--boxcolor" {
 			i++
-			m.Boxcolor = args[i]
+			m.Boxcolor = "\033[1;48;2;" + args[i] + "m" + "\033[1;38;2;0;0;0m"
 		} else if args[i] == "--cursorcolor" {
 			i++
-			m.Cursorcolor = args[i]
+			m.Cursorcolor = "\033[1;48;2;" + args[i] + "m"
 		} else if args[i] == "--border" {
 			i++
 			m.Border = args[i]

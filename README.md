@@ -21,9 +21,13 @@ Box options:
 
 Options:
 
-  --border  [rounded/normal/thick/double/hidden]
-  --help    print this message
-  --version print version information
+  --bgcolor     <R;G;B>
+  --boxcolor    <R;G;B>
+  --cursorcolor <R;G;B>
+  --border      <rounded/normal/thick/double/hidden>
+  --title       <title>
+  --help        print this message
+  --version     print version information
 ```     
 ## TODO:
 - [X] msgbox       
