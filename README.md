@@ -5,6 +5,8 @@
 ## About:       
 Yoshinon ~~(よしのん)~~ is a whiptail-like dialog box written with Bubble Tea (Go).          
 The command-line usage is very similar to dialog/whiptail.      
+## Notes: 
+Yoshinon uses stderr/stdout for output, stderr for the dialog box and stdout for returnd values. So just use `$(yoshinon command)` for reading the output.
 ## Usage:
 ```
 Box options:
