@@ -31,17 +31,6 @@ Options:
   --help        print this message
   --version     print version information
 ```     
-## TODO:
-- [X] msgbox       
-- [X] yesno  
-- [X] inputbox
-- [X] passwordbox
-- [X] menu
-- [X] checklist
-- [X] radiolist
-- [X] gauge
-- [X] help
-- [ ] man page
 
 ## Thanks:
 [Bubble Tea](https://github.com/charmbracelet/bubbletea)      

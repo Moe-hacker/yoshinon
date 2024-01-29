@@ -34,14 +34,15 @@ package gauge
 import (
 	"bufio"
 	"fmt"
-	"golang.org/x/sys/unix"
 	"io"
 	"os"
 	"strconv"
 	"strings"
 	"syscall"
-	. "yoshinon/help"
+	. "yoshinon/error"
 	. "yoshinon/ui"
+
+	"golang.org/x/sys/unix"
 )
 
 type Gauge_config struct {

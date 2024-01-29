@@ -35,6 +35,7 @@ import (
 	"os"
 	"strconv"
 	. "yoshinon/checklist"
+	. "yoshinon/error"
 	. "yoshinon/gauge"
 	. "yoshinon/help"
 	. "yoshinon/inputbox"
@@ -47,8 +48,6 @@ import (
 )
 
 var Version_code = "1.1"
-
-// It will be set in Makefile, seems that go do not support #define, so I use `sed` command instead.
 var Commit_id = ""
 
 func run_gauge(args []string) {

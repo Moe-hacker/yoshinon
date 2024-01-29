@@ -33,12 +33,13 @@ package menu
 
 import (
 	"fmt"
-	tea "github.com/charmbracelet/bubbletea"
-	"golang.org/x/sys/unix"
 	"os"
 	"syscall"
-	. "yoshinon/help"
+	. "yoshinon/error"
 	. "yoshinon/ui"
+
+	tea "github.com/charmbracelet/bubbletea"
+	"golang.org/x/sys/unix"
 )
 
 var (

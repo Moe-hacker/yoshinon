@@ -33,13 +33,14 @@ package passwordbox
 
 import (
 	"fmt"
+	"os"
+	"syscall"
+	. "yoshinon/error"
+	. "yoshinon/ui"
+
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"golang.org/x/sys/unix"
-	"os"
-	"syscall"
-	. "yoshinon/help"
-	. "yoshinon/ui"
 )
 
 var (
