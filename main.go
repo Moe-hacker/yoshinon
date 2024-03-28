@@ -133,8 +133,10 @@ func run_inputbox(args []string) string {
 			i++
 			m.Width, _ = strconv.Atoi(args[i])
 			i++
-			if len(args) > i-1 {
+			if len(args) > i {
 				m.Init = args[i]
+			} else {
+				m.Init = ""
 			}
 			break
 		}
